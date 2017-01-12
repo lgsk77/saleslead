@@ -5,4 +5,5 @@
 팀장: 유희상 gogohs1234@naver.com
 팀원1: 박지용 hottt812@naver.com
 팀원2: 정종찬 lgsk77@naver.com
+저도 확인좀
 팀원3: 임연주 lyjyj93@naver.com

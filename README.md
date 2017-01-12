@@ -3,3 +3,4 @@
 
 # 팀원목록
 팀장: 유희상 gogohs1234@naver.com
+팀원1: 홍길동 hottt812@naver.com

@@ -1,4 +1,5 @@
 package com.genius.game;
+import java.io.*;
 import java.util.Scanner;
 
 public class GeniusGame {
@@ -52,7 +53,8 @@ public class GeniusGame {
 				p1card[p1in]=10;
 				p2card[p2in]=10;
 				System.out.println(p1_score + "대" +p2_score);
-				Thread.sleep(2000);
+				//Thread.sleep(2000);
+				pause();
 			}
 			else if(p1in <p2in){
 				System.out.println("p2가 점수를 가져갑니다.");
@@ -60,13 +62,13 @@ public class GeniusGame {
 				p1card[p1in]=10;
 				p2card[p2in]=10;
 				System.out.println(p1_score + "대" +p2_score);
-				Thread.sleep(2000);
+				pause();
 			}
 			else{
 				System.out.println("비겼습니다.");
 				p1card[p1in]=10;
 				p2card[p2in]=10;
-				Thread.sleep(2000);
+				pause();
 			}
 		}
 		if(p1_score>p2_score)
@@ -76,4 +78,10 @@ public class GeniusGame {
 		else
 			System.out.println("비겼습니다.");
 	}
+	
+	public static void pause() {
+	    try {
+	      System.in.read();
+	    } catch (IOException e) { }
+	  }
 }

@@ -55,6 +55,10 @@ public class GeniusGame {
 				System.out.println(p1_score + "대" +p2_score);
 				//Thread.sleep(2000);
 				pause();
+				for(int x=0;x<10;x++)
+				{
+					System.out.println("");
+				}
 			}
 			else if(p1in <p2in){
 				System.out.println("p2가 점수를 가져갑니다.");
@@ -63,12 +67,20 @@ public class GeniusGame {
 				p2card[p2in]=10;
 				System.out.println(p1_score + "대" +p2_score);
 				pause();
+				for(int x=0;x<10;x++)
+				{
+					System.out.println("");
+				}
 			}
 			else{
 				System.out.println("비겼습니다.");
 				p1card[p1in]=10;
 				p2card[p2in]=10;
 				pause();
+				for(int x=0;x<10;x++)
+				{
+					System.out.println("");
+				}
 			}
 		}
 		if(p1_score>p2_score)

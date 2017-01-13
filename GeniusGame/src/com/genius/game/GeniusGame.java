@@ -2,7 +2,7 @@ package com.genius.game;
 import java.util.Scanner;
 
 public class GeniusGame {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException{
 		int[] p1card= new int[10];
 		int[] p2card= new int[10];
 		
@@ -21,14 +21,14 @@ public class GeniusGame {
 		}
 		for(int j=0;j<10;j++)
 		{
-			System.out.println("player1ÀÇ Ä«µå");
+			System.out.println("player1ì˜ ì¹´ë“œ");
 			for(int i=0;i<10;i++)
 			{
 				if(p1card[i]<10)
 					System.out.print(p1card[i] + " ");
 			}
 			System.out.println("");
-			System.out.println("p1 ³¾ Ä«µå¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.println("p1 ë‚¼ ì¹´ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			p1in=in.nextInt();
 
 			for(int x=0;x<10;x++)
@@ -42,38 +42,38 @@ public class GeniusGame {
 					System.out.print(p2card[i] + " ");
 			}
 			System.out.println("");
-			System.out.println("p2 ³¾ Ä«µå¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+			System.out.println("p2 ë‚¼ ì¹´ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 			p2in=in.nextInt();
 
 			
 			if(p1in > p2in){
-				System.out.println("p1ÀÌ Á¡¼ö¸¦ °¡Á® °©´Ï´Ù.");
+				System.out.println("p1ì´ ì ìˆ˜ë¥¼ ê°€ì ¸ ê°‘ë‹ˆë‹¤.");
 				p1_score++;
 				p1card[p1in]=10;
 				p2card[p2in]=10;
-				System.out.println(p1_score + "´ë" +p2_score);
-				p2in=in.nextInt();
+				System.out.println(p1_score + "ëŒ€" +p2_score);
+				Thread.sleep(2000);
 			}
 			else if(p1in <p2in){
-				System.out.println("p2°¡ Á¡¼ö¸¦ °¡Á®°©´Ï´Ù.");
+				System.out.println("p2ê°€ ì ìˆ˜ë¥¼ ê°€ì ¸ê°‘ë‹ˆë‹¤.");
 				p2_score++;
 				p1card[p1in]=10;
 				p2card[p2in]=10;
-				System.out.println(p1_score + "´ë" +p2_score);
-				p2in=in.nextInt();
+				System.out.println(p1_score + "ëŒ€" +p2_score);
+				Thread.sleep(2000);
 			}
 			else{
-				System.out.println("ºñ°å½À´Ï´Ù.");
+				System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤.");
 				p1card[p1in]=10;
 				p2card[p2in]=10;
-				p2in=in.nextInt();
+				Thread.sleep(2000);
 			}
 		}
 		if(p1_score>p2_score)
-			System.out.println("p1ÀÌ ÀÌ°å½À´Ï´Ù.");
+			System.out.println("p1ì´ ì´ê²¼ìŠµë‹ˆë‹¤.");
 		else if(p1_score<p2_score)
-			System.out.println("p2°¡ ÀÌ°å½À´Ï´Ù.");
+			System.out.println("p2ê°€ ì´ê²¼ìŠµë‹ˆë‹¤.");
 		else
-			System.out.println("ºñ°å½À´Ï´Ù.");
+			System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤.");
 	}
 }

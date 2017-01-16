@@ -18,7 +18,7 @@ public class GeniusGame {
 				p1card[i]=i;
 				p2card[i]=i;
 			}
-			for(int j=0;j<10;j++)
+			for(int j=0;j<p1card.length;j++)
 			{
 				System.out.println("player1의 카드");
 				for(int i=0;i<10;i++)
@@ -69,7 +69,7 @@ public class GeniusGame {
 					p1_score++;
 					p1card[p1in]=10;
 					p2card[p2in]=10;
-					System.out.println(p1_score + "대" +p2_score);
+					System.out.println(p1_score + " 대 " +p2_score);
 					pause();
 					for(int x=0;x<10;x++)
 					{
@@ -81,7 +81,7 @@ public class GeniusGame {
 					p2_score++;
 					p1card[p1in]=10;
 					p2card[p2in]=10;
-					System.out.println(p1_score + "대" +p2_score);
+					System.out.println(p1_score + " 대 " +p2_score);
 					pause();
 					for(int x=0;x<10;x++)
 					{
@@ -109,8 +109,10 @@ public class GeniusGame {
 				System.out.println("비겼습니다.");
 			}
 			System.out.println("게임을 종료 하려면 y를 누르세요.");
-			
 		}while(!scanner.next().equals("y"));
+		System.out.println("***************");
+		System.out.println("***게임 끝 수고염***");
+		System.out.println("***************");
 	}
 	
 	public static void pause() {

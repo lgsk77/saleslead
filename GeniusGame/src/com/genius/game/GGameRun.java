@@ -3,7 +3,7 @@ package com.genius.game;
 import java.util.Scanner;
 
 public class GGameRun {
-	public static void main(String argc[]) {
+	public static void main(String args[]) {
 		GGame p1 = new GGame();
 		GGame p2 = new GGame();
 

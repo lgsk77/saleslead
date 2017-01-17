@@ -20,6 +20,12 @@ public class GGame {
 		cardcount=0;
 	}
 	
+	void reset(int a){
+		for(int i=a;i<100;i++){
+			card[i]=101;
+		}
+	}
+	
 	int showcard(GGame player,int cardnum){
 		return player.card[cardnum];
 	}
@@ -30,11 +36,15 @@ public class GGame {
 		return false;
 	}
 	
+	void flag(GGame player){
+		this.card[input]=101;
+		player.card[input]=101;
+	}
+	
 	boolean checkvictory(GGame player){
 		if(this.input>player.input){
 			this.score++;
-			this.card[input]=101;
-			player.card[player.input]=101;
+			flag(player);
 			return true;
 		}
 		return false;

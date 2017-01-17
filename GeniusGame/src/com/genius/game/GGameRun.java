@@ -1,6 +1,5 @@
 package com.genius.game;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GGameRun {
@@ -9,14 +8,13 @@ public class GGameRun {
 		GGame p2 = new GGame();
 
 		Scanner scanner = new Scanner(System.in);
-		
-		
+
 		do {
-			p1.score=0;
-			p2.score=0;
+			p1.score = 0;
+			p2.score = 0;
 			System.out.println("카드를 몇 장 사용하시겠습니까?");
 			System.out.println("(최대 100장)");
-			int a=scanner.nextInt();
+			int a = scanner.nextInt();
 			for (int j = 0; j < a; j++) {
 				System.out.println("플레이어 p1의 카드");
 				for (int i = 0; i < a; i++) {
@@ -56,11 +54,10 @@ public class GGameRun {
 					System.out.println("p2score :" + p2.score);
 				}
 			}
-			if(p1.victorygame(p2)){
-				System.out.println("p1이 "+ p1.score +" 대 " + p2.score+"로 이였습니다.");
-			}
-			else if(p2.victorygame(p1))
-				System.out.println("p2가 "+ p1.score +" 대 " + p2.score+"로 이였습니다.");
+			if (p1.victorygame(p2)) {
+				System.out.println("p1이 " + p1.score + " 대 " + p2.score + "로 이겼습니다.");
+			} else if (p2.victorygame(p1))
+				System.out.println("p2가 " + p1.score + " 대 " + p2.score + "로 이겼습니다.");
 			else
 				System.out.println("비겼네요 ㅠㅠ");
 			System.out.println("고만 하시겠습니까?(y/n)");

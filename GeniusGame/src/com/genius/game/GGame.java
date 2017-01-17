@@ -8,7 +8,6 @@ public class GGame {
 	int input;
 	int cardcount;
 	
-	Scanner scanner = new Scanner(System.in);
 	
 	public GGame(){
 		
@@ -28,9 +27,6 @@ public class GGame {
 		}
 	}
 	
-	int showcard(GGame player,int cardnum){
-		return player.card[cardnum].num;
-	}
 	
 	boolean checkcard(int cardnum){
 		if(this.card[cardnum].card==false)
@@ -38,38 +34,32 @@ public class GGame {
 		return false;
 	}
 	
-	void flag(GGame player){ //낸 카드를 안보이게 하는 것
+
+	void reverse(GGame player){
 		this.card[input].card=false;
 		player.card[player.input].card=false;
 	}
 	
-	boolean checkvictory(GGame player){
+	boolean checkVictory(GGame player){
 		if(this.input>player.input){
 			this.score++;
-			flag(player);
+			reverse(player);
 			return true;
 		}
 		return false;
 	}
 	
-	boolean drawcard(){
-		input=scanner.nextInt();
-		if(input>=101)
-			return true;
-		else if(checkcard(input))
+	boolean drawCard(int input){
+		this.input=input;
+		if(checkcard(input))
 			return true;
 		return false;
 	}
 	
-	boolean victorygame(GGame player){
+	boolean victoryGame(GGame player){
 		if(this.score>player.score)
 			return true;
 		return false;
-	}
-	
-	void clear(){
-		for(int i=0;i<15;i++)
-			System.out.println("");
 	}
 	
 }

@@ -38,7 +38,7 @@ public class GGame {
 	
 	void flag(GGame player){
 		this.card[input]=101;
-		player.card[input]=101;
+		player.card[player.input]=101;
 	}
 	
 	boolean checkvictory(GGame player){

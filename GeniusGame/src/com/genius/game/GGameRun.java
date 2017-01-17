@@ -3,15 +3,14 @@ package com.genius.game;
 import java.util.Scanner;
 
 public class GGameRun {
-	public static void main(String args[]) {
-		GGame p1 = new GGame();
-		GGame p2 = new GGame();
 
+	public static void main(String args[]) {
+		
 		Scanner scanner = new Scanner(System.in);
 
 		do {
-			p1.score = 0;
-			p2.score = 0;
+			GGame p1 = new GGame();
+			GGame p2 = new GGame();
 			System.out.println("카드를 몇 장 사용하시겠습니까?");
 			System.out.println("(최대 100장)");
 			int cardnum = scanner.nextInt();

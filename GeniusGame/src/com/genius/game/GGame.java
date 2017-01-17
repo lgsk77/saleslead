@@ -28,9 +28,6 @@ public class GGame {
 		}
 	}
 	
-	int showcard(GGame player,int cardnum){
-		return player.card[cardnum].num;
-	}
 	
 	boolean checkcard(int cardnum){
 		if(this.card[cardnum].card==false)

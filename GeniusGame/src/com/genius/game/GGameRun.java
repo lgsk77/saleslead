@@ -65,5 +65,8 @@ public class GGameRun {
 				System.out.println("비겼네요 ㅠㅠ");
 			System.out.println("고만 하시겠습니까?(y/n)");
 		} while (!scanner.next().equals("y"));
+		System.out.println("***************");
+		System.out.println("***다음에 또 만나요***");
+		System.out.println("***************");
 	}
 }

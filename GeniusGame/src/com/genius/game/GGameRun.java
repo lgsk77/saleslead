@@ -14,10 +14,12 @@ public class GGameRun {
 			p2.score = 0;
 			System.out.println("카드를 몇 장 사용하시겠습니까?");
 			System.out.println("(최대 100장)");
-			int a = scanner.nextInt();
-			for (int j = 0; j < a; j++) {
+			int cardnum = scanner.nextInt();
+			p1.reset(cardnum);
+			p2.reset(cardnum);
+			for (int j = 0; j < cardnum; j++) {
 				System.out.println("플레이어 p1의 카드");
-				for (int i = 0; i < a; i++) {
+				for (int i = 0; i < cardnum; i++) {
 					if (!p1.checkcard(i)) {
 						System.out.print(p1.card[i] + " ");
 					}
@@ -29,7 +31,7 @@ public class GGameRun {
 						break;
 				}
 				System.out.println("플레이어 p2의 카드");
-				for (int i = 0; i < a; i++) {
+				for (int i = 0; i < cardnum; i++) {
 					if (!p2.checkcard(i)) {
 						System.out.print(p2.card[i] + " ");
 					}
@@ -49,6 +51,7 @@ public class GGameRun {
 					System.out.println("p1score :" + p1.score);
 					System.out.println("p2score :" + p2.score);
 				} else {
+					p1.flag(p2);
 					System.out.println("비겼습니다.");
 					System.out.println("p1score :" + p1.score);
 					System.out.println("p2score :" + p2.score);

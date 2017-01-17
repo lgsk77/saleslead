@@ -25,7 +25,7 @@ public class GGameRun {
 				}
 				while (true) {
 					if (p1.drawcard())
-						System.out.println("입력된 숫자를 입력하셨습니다. 다시입력하세요.");
+						System.out.println("없는 숫자를 입력하셨습니다. 다시입력하세요.");
 					else
 						break;
 				}

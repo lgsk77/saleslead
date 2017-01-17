@@ -3,7 +3,7 @@ package com.genius.game;
 import java.util.Scanner;
 
 public class GGame {
-	int[] card = new int[100];
+	Card[] card = new Card[100];
 	int score;
 	int input;
 	int cardcount;
@@ -11,9 +11,11 @@ public class GGame {
 	Scanner scanner = new Scanner(System.in);
 	
 	public GGame(){
-		for(int i=0;i<100;i++)
-		{
-			card[i]=i;
+		
+		for(int i=0;i<100;i++){
+			card[i]=new Card();
+			card[i].num=i;
+			card[i].card=true;
 		}
 		score=0;
 		input=0;
@@ -22,23 +24,23 @@ public class GGame {
 	
 	void reset(int a){
 		for(int i=a;i<100;i++){
-			card[i]=101;
+			card[i].card=false;
 		}
 	}
 	
 	int showcard(GGame player,int cardnum){
-		return player.card[cardnum];
+		return player.card[cardnum].num;
 	}
 	
 	boolean checkcard(int cardnum){
-		if(this.card[cardnum]==101)
+		if(this.card[cardnum].card==false)
 			return true;
 		return false;
 	}
 	
 	void flag(GGame player){
-		this.card[input]=101;
-		player.card[player.input]=101;
+		this.card[input].card=false;
+		player.card[player.input].card=false;
 	}
 	
 	boolean checkvictory(GGame player){
@@ -63,6 +65,11 @@ public class GGame {
 		if(this.score>player.score)
 			return true;
 		return false;
+	}
+	
+	void clear(){
+		for(int i=0;i<15;i++)
+			System.out.println("");
 	}
 	
 }

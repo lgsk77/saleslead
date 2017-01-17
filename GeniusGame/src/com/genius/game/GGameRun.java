@@ -28,6 +28,7 @@ public class GGameRun {
 					else
 						break;
 				}
+				p1.clear();
 				System.out.println("플레이어 p2의 카드");
 				for (int i = 0; i < cardnum; i++) {
 					if (!p2.checkcard(i)) {

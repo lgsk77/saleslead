@@ -12,18 +12,15 @@ public class GGame {
 	
 	public GGame(){
 		for(int i=0;i<100;i++)
-		{
 			card[i]=i;
-		}
 		score=0;
 		input=0;
 		cardcount=0;
 	}
 	
 	void reset(int a){
-		for(int i=a;i<100;i++){
+		for(int i=a;i<100;i++)
 			card[i]=101;
-		}
 	}
 	
 	int showcard(GGame player,int cardnum){
@@ -63,6 +60,11 @@ public class GGame {
 		if(this.score>player.score)
 			return true;
 		return false;
+	}
+	
+	void clear(){
+		for(int i=0;i<15;i++)
+			System.out.println("");
 	}
 	
 }

@@ -19,7 +19,7 @@ public class GGameRun {
 				System.out.println("플레이어 p1의 카드");
 				for (int i = 0; i < cardnum; i++) {
 					if (!p1.checkcard(i)) {
-						System.out.print(p1.card[i] + " ");
+						System.out.print(p1.card[i].num + " ");
 					}
 				}
 				while (true) {
@@ -32,7 +32,7 @@ public class GGameRun {
 				System.out.println("플레이어 p2의 카드");
 				for (int i = 0; i < cardnum; i++) {
 					if (!p2.checkcard(i)) {
-						System.out.print(p2.card[i] + " ");
+						System.out.print(p2.card[i].num + " ");
 					}
 				}
 				while (true) {

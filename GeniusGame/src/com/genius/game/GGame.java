@@ -64,9 +64,4 @@ public class GGame {
 		return false;
 	}
 	
-	void clear(){
-		for(int i=0;i<15;i++)
-			System.out.println("");
-	}
-	
 }

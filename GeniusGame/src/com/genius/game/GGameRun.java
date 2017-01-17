@@ -28,7 +28,7 @@ public class GGameRun {
 					else
 						break;
 				}
-				p1.clear();
+				clear();
 				System.out.println("플레이어 p2의 카드");
 				for (int i = 0; i < cardnum; i++) {
 					if (!p2.checkcard(i)) {
@@ -68,5 +68,9 @@ public class GGameRun {
 		System.out.println("***************");
 		System.out.println("***다음에 또 만나요***");
 		System.out.println("***************");
+	}
+	static void clear(){
+		for(int i=0;i<15;i++)
+			System.out.println("");
 	}
 }

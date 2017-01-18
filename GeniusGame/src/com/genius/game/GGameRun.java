@@ -19,7 +19,7 @@ public class GGameRun {
 				System.out.println("플레이어 p1의 카드");
 				for (int i = 0; i < cardnum; i++) {
 					if (!p1.checkcard(i)) {
-						System.out.print(p1.card[i].num + " ");
+						System.out.print(p1.getCardNum(i) + " ");
 					}
 				}
 				while (true) {
@@ -33,7 +33,7 @@ public class GGameRun {
 				System.out.println("플레이어 p2의 카드");
 				for (int i = 0; i < cardnum; i++) {
 					if (!p2.checkcard(i)) {
-						System.out.print(p2.card[i].num + " ");
+						System.out.print(p2.getCardNum(i) + " ");
 					}
 				}
 				while (true) {
@@ -46,23 +46,23 @@ public class GGameRun {
 
 				if (p1.checkVictory(p2)) {
 					System.out.println("p1이 이겼습니다.");
-					System.out.println("p1score :" + p1.score);
-					System.out.println("p2score :" + p2.score);
+					System.out.println("p1score :" + p1.getScore());
+					System.out.println("p2score :" + p2.getScore());
 				} else if (p2.checkVictory(p1)) {
 					System.out.println("p2가 이겼습니다.");
-					System.out.println("p1score :" + p1.score);
-					System.out.println("p2score :" + p2.score);
+					System.out.println("p1score :" + p1.getScore());
+					System.out.println("p2score :" + p2.getScore());
 				} else {
 					p1.reverse(p2);
 					System.out.println("비겼습니다.");
-					System.out.println("p1score :" + p1.score);
-					System.out.println("p2score :" + p2.score);
+					System.out.println("p1score :" + p1.getScore());
+					System.out.println("p2score :" + p2.getScore());
 				}
 			}
 			if (p1.victoryGame(p2)) {
-				System.out.println("p1이 " + p1.score + " 대 " + p2.score + "로 이겼습니다.");
+				System.out.println("p1이 " + p1.getScore() + " 대 " + p2.getScore() + "로 이겼습니다.");
 			} else if (p2.victoryGame(p1))
-				System.out.println("p2가 " + p1.score + " 대 " + p2.score + "로 이겼습니다.");
+				System.out.println("p2가 " + p1.getScore() + " 대 " + p2.getScore() + "로 이겼습니다.");
 			else
 				System.out.println("비겼네요 ㅠㅠ");
 			System.out.println("그만 하시겠습니까?(y/n)");

@@ -5,6 +5,7 @@ public class GGameSecond extends GGame{
 	public GGameSecond(int score){
 		super();
 		this.setScore(score);
+		System.out.println(getScore());
 	}
 	@Override
 	void reverse(GGame player){

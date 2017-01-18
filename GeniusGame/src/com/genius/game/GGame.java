@@ -83,7 +83,7 @@ public class GGame {
 	
 	boolean drawCard(int input){
 		this.input=input;
-		if(checkcard(input))
+		if(card[input].isReverse())
 			return true;
 		return false;
 	}

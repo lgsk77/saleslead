@@ -112,12 +112,33 @@ public class GGameTotal {
 						System.out.println("p1이 이겼습니다.!!!");
 						System.out.println("p1score :" + p1.getScore());
 						System.out.println("p2score :" + p2.getScore());
+						if (p1.victoryGame()) {
+							System.out.println("p1이 이겼습니다.");
+							System.out.println("p1score :" + p1.getScore());
+							System.out.println("p2score :" + p2.getScore());
+							break;
+						} else if (p2.victoryGame()) {
+							System.out.println("p2가 이겼습니다.");
+							System.out.println("p1score :" + p1.getScore());
+							System.out.println("p2score :" + p2.getScore());
+							break;
+						}
 						//break;
 					} else if (p2.checkVictory(p1)) {
 						System.out.println("p2가 이겼습니다.!!!");
 						System.out.println("p1score :" + p1.getScore());
 						System.out.println("p2score :" + p2.getScore());
-						//break;
+						if (p1.victoryGame()) {
+							System.out.println("p1이 이겼습니다.");
+							System.out.println("p1score :" + p1.getScore());
+							System.out.println("p2score :" + p2.getScore());
+							break;
+						} else if (p2.victoryGame()) {
+							System.out.println("p2가 이겼습니다.");
+							System.out.println("p1score :" + p1.getScore());
+							System.out.println("p2score :" + p2.getScore());
+							break;
+						}//break;
 					} else {
 						if (p1.victoryGame()) {
 							System.out.println("p1이 이겼습니다.");

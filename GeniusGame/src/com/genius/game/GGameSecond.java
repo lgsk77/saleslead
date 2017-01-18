@@ -36,7 +36,9 @@ public class GGameSecond extends GGame{
 	}
 	@Override
 	boolean checkVictory(GGame player){
-		if(this.getInput()>player.getInput()){
+		if(this.getScore()<1)
+			return false;
+		if(this.getInput()>player.getInput() ){
 			this.setScore(this.getScore()-1);
 			reverse(player);
 			return true;

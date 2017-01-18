@@ -28,7 +28,7 @@ public class GGame {
 	}
 	
 	
-	boolean checkcard(int cardnum){
+	boolean checkCard(int cardnum){
 		if(this.card[cardnum].card==false)
 			return true;
 		return false;
@@ -51,7 +51,7 @@ public class GGame {
 	
 	boolean drawCard(int input){
 		this.input=input;
-		if(checkcard(input))
+		if(checkCard(input))
 			return true;
 		return false;
 	}

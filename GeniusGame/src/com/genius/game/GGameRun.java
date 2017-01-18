@@ -20,7 +20,7 @@ public class GGameRun {
 			for (int j = 0; j < cardnum; j++) {
 				System.out.println("플레이어 p1의 카드");
 				for (int i = 0; i < cardnum; i++) {
-					if (!p1.checkcard(i)) {
+					if (!p1.checkCard(i)) {
 						System.out.print(p1.card[i].num + " ");
 					}
 				}//gghh
@@ -36,7 +36,7 @@ public class GGameRun {
 				clear();
 				System.out.println("플레이어 p2의 카드");
 				for (int i = 0; i < cardnum; i++) {
-					if (!p2.checkcard(i)) {
+					if (!p2.checkCard(i)) {
 						System.out.print(p2.card[i].num + " ");
 					}
 				}

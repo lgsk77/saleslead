@@ -2,16 +2,6 @@ package com.genius.game;
 
 public class GGameSecond extends GGame{
 	
-	/*private int maxscore;
-	
-	public void setMaxScore(int max){
-		this.maxscore=max;
-	}
-	
-	public int getScore(){
-		return maxscore;
-	}
-	*/
 	public GGameSecond(int score){
 		super();
 		this.setScore(score);
@@ -23,7 +13,7 @@ public class GGameSecond extends GGame{
 		player.setCardReverse(player.getInput(),false);
 	}
 	@Override
-	void reset(int a){
+	void initailReverse(int a){
 		for(int i=a;i<TOTAL_CARD;i++){
 			this.setCardReverse(i,false);
 		}
@@ -46,7 +36,6 @@ public class GGameSecond extends GGame{
 		return false;
 	}
 	
-
 	@Override
 	boolean drawCard(int input){
 		this.setInput(input);

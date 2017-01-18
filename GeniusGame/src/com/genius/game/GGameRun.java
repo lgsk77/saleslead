@@ -13,8 +13,8 @@ public class GGameRun {
 			System.out.println("카드를 몇 장 사용하시겠습니까?");
 			System.out.println("(최대 100장)");
 			int cardnum = scanner.nextInt();
-			p1.reset(cardnum);
-			p2.reset(cardnum);
+			p1.initailReverse(cardnum);
+			p2.initailReverse(cardnum);
 			for (int j = 0; j < cardnum; j++) {
 				System.out.println("플레이어 p1의 카드");
 				for (int i = 0; i < cardnum; i++) {

@@ -9,15 +9,15 @@ public class GGameTotal {
 		
 		do {
 			System.out.println("1.Up 2.Down 3.end");
-			int first  = scanner.nextInt();
-			if(first==1){
+			int selectMenu  = scanner.nextInt();
+			if(selectMenu==1){
 				GGame p1 = new GGame();
 				GGame p2 = new GGame();
 				System.out.println("카드를 몇 장 사용하시겠습니까?");
 				System.out.println("(최대 100장)");
 				int cardnum = scanner.nextInt();
-				p1.reset(cardnum);
-				p2.reset(cardnum);
+				p1.initailReverse(cardnum);
+				p2.initailReverse(cardnum);
 				for (int j = 0; j < cardnum; j++) {
 					System.out.println("플레이어 p1의 카드");
 					for (int i = 0; i < cardnum; i++) {
@@ -46,7 +46,6 @@ public class GGameTotal {
 						else
 							break;
 					}
-	
 					if (p1.checkVictory(p2)) {
 						System.out.println("p1이 이겼습니다.");
 						System.out.println("p1score :" + p1.getScore());
@@ -69,7 +68,7 @@ public class GGameTotal {
 				else
 					System.out.println("비겼네요 ㅠㅠ");
 			}
-			else if(first==2){
+			else if(selectMenu==2){
 				System.out.println("몇 점으로 하시겠습니까?");
 				int maxscore = scanner.nextInt();
 				System.out.println(maxscore);
@@ -78,8 +77,8 @@ public class GGameTotal {
 				System.out.println("카드를 몇 장 사용하시겠습니까?");
 				System.out.println("(최대 100장)");
 				int cardnum = scanner.nextInt();
-				p1.reset(cardnum);
-				p2.reset(cardnum);
+				p1.initailReverse(cardnum);
+				p2.initailReverse(cardnum);
 				for (int j = 0; j < cardnum; j++) {
 					System.out.println("플레이어 p1의 카드");
 					for (int i = 0; i < cardnum; i++) {
@@ -109,84 +108,40 @@ public class GGameTotal {
 							break;
 					}
 					if (p1.checkVictory(p2)) {
-						System.out.println("p1이 이겼습니다.!!!");
+						System.out.println("p1이 점수를 땃습니다.");
 						System.out.println("p1score :" + p1.getScore());
 						System.out.println("p2score :" + p2.getScore());
 						if (p1.victoryGame()) {
-							System.out.println("p1이 이겼습니다.");
+							System.out.println("p1이 게임에서 이겼습니다.");
 							System.out.println("p1score :" + p1.getScore());
 							System.out.println("p2score :" + p2.getScore());
 							break;
 						} else if (p2.victoryGame()) {
-							System.out.println("p2가 이겼습니다.");
+							System.out.println("p2가 게임에서 이겼습니다.");
 							System.out.println("p1score :" + p1.getScore());
 							System.out.println("p2score :" + p2.getScore());
 							break;
 						}
-						//break;
 					} else if (p2.checkVictory(p1)) {
-						System.out.println("p2가 이겼습니다.!!!");
+						System.out.println("p2가 점수를 땄습니다");
 						System.out.println("p1score :" + p1.getScore());
 						System.out.println("p2score :" + p2.getScore());
 						if (p1.victoryGame()) {
-							System.out.println("p1이 이겼습니다.");
+							System.out.println("p1이 게임에서 이겼습니다");
 							System.out.println("p1score :" + p1.getScore());
 							System.out.println("p2score :" + p2.getScore());
 							break;
 						} else if (p2.victoryGame()) {
-							System.out.println("p2가 이겼습니다.");
+							System.out.println("p2가 게임에서 이겼습니다.");
 							System.out.println("p1score :" + p1.getScore());
 							System.out.println("p2score :" + p2.getScore());
 							break;
-						}//break;
-					} else {
-						if (p1.victoryGame()) {
-							System.out.println("p1이 이겼습니다.");
-							System.out.println("p1score :" + p1.getScore());
-							System.out.println("p2score :" + p2.getScore());
-							break;
-						} else if (p2.victoryGame()) {
-							System.out.println("p2가 이겼습니다.");
-							System.out.println("p1score :" + p1.getScore());
-							System.out.println("p2score :" + p2.getScore());
-							break;
-						} else {
-							p1.reverse(p2);
-							System.out.println("비겼습니다.");
-							System.out.println("p1score :" + p1.getScore());
-							System.out.println("p2score :" + p2.getScore());
 						}
-					}
-					/*if (p1.victoryGame()) {
-						System.out.println("p1이 이겼습니다.!!!");
-						System.out.println("p1score :" + p1.getScore());
-						System.out.println("p2score :" + p2.getScore());
-						break;
-					} else if (p2.victoryGame()) {
-						System.out.println("p2가 이겼습니다.!!!");
-						System.out.println("p1score :" + p1.getScore());
-						System.out.println("p2score :" + p2.getScore());
-						break;
-					} else {
-						if (p1.checkVictory(p2)) {
-							System.out.println("p1이 이겼습니다.");
-							System.out.println("p1score :" + p1.getScore());
-							System.out.println("p2score :" + p2.getScore());
-						} else if (p2.checkVictory(p1)) {
-							System.out.println("p2가 이겼습니다.");
-							System.out.println("p1score :" + p1.getScore());
-							System.out.println("p2score :" + p2.getScore());
-						} else {
-							p1.reverse(p2);
-							System.out.println("비겼습니다.");
-							System.out.println("p1score :" + p1.getScore());
-							System.out.println("p2score :" + p2.getScore());
-						}
-					}*/
+					} 
 				}
 			}
-			else if(first==3)
-				System.out.println("그만 하시겠습니까?(y/n)");
+			else if(selectMenu==3)
+				System.out.println("");
 			System.out.println("그만 하시겠습니까?(y/n)");
 		} while (!scanner.next().equals("y"));
 		System.out.println("***************");

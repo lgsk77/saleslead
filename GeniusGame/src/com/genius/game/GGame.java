@@ -8,8 +8,7 @@ public class GGame {
 	private Card[] card = new Card[TOTAL_CARD];
 	private int score;
 	private int input;
-	
-	
+
 	public void setScore(int score){
 		this.score = score;
 	}
@@ -40,10 +39,7 @@ public class GGame {
 	public void setCardReverse(int index,boolean reverse){
 		card[index].setReverse(reverse);
 	}
-	//public void addElement(int value) 배열은 하나씩 바꾼다. 전체를 바꾸는 개념이 아니다.
-	//public void modifyElement(int index,int value)
-	//public void getEelement(int index)
-	//prublic void removeElement(int index);
+	
 	public GGame(){
 		for(int i=0;i<TOTAL_CARD;i++){
 			card[i]=new Card();
@@ -54,7 +50,7 @@ public class GGame {
 		input=0;
 	}
 	
-	void reset(int a){
+	void initailReverse(int a){
 		for(int i=a;i<TOTAL_CARD;i++){
 			card[i].setReverse(false);
 		}

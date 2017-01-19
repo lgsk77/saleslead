@@ -6,7 +6,7 @@ public class GGameRun {
 	public static void main(String argc[]) {
 
 		Scanner scanner = new Scanner(System.in);
-
+/*
 		do {
 			GGame p1 = new GGame();
 			GGame p2 = new GGame();
@@ -69,7 +69,7 @@ public class GGameRun {
 		} while (!scanner.next().equals("y"));
 		System.out.println("***************");
 		System.out.println("***다음에 또 만나요***");
-		System.out.println("***************");
+		System.out.println("***************");*/
 	}
 
 	static void clear() {

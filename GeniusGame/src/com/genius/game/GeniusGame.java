@@ -18,6 +18,7 @@ public class GeniusGame {
 				p1card[i] = i;
 				p2card[i] = i;
 			}
+			
 			for (int j = 0; j < p1card.length; j++) {
 				System.out.println("player1의 카드");
 				for (int i = 0; i < 10; i++) {

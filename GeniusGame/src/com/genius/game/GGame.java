@@ -2,7 +2,7 @@ package com.genius.game;
 
 import java.util.Scanner;
 
-public class GGame {
+public abstract class GGame {
 	static final int TOTAL_CARD=100;
 	
 	private Card[] card = new Card[TOTAL_CARD];
@@ -50,7 +50,7 @@ public class GGame {
 		input=0;
 	}
 	
-	void initailReverse(int a){
+	/*void initailReverse(int a){
 		for(int i=a;i<TOTAL_CARD;i++){
 			card[i].setReverse(false);
 		}
@@ -88,6 +88,6 @@ public class GGame {
 		if(this.score>player.score)
 			return true;
 		return false;
-	}
+	}*/
 	
 }

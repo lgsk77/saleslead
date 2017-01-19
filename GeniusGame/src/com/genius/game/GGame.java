@@ -61,7 +61,7 @@ public class GGame {
 	}
 	
 	
-	boolean checkcard(int cardnum){
+	boolean checkCard(int cardnum){
 		if(card[cardnum].isReverse())
 			return false;
 		return true;
@@ -83,7 +83,7 @@ public class GGame {
 	
 	boolean drawCard(int input){
 		this.input=input;
-		if(card[input].isReverse())
+		if(checkCard(input))
 			return true;
 		return false;
 	}

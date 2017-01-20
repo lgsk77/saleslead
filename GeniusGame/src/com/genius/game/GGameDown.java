@@ -1,9 +1,10 @@
 package com.genius.game;
 
-public class GGameFirst extends GGame implements CheckCard,CheckVictory,DrawCard,InitialReverse,Reverse,VictoryGame {
+public class GGameDown extends GGame implements CheckCard,CheckVictory,DrawCard,InitialReverse,Reverse,VictoryGame {
 	
-	public GGameFirst(){
+	public GGameDown(int score){
 		super();
+		this.setScore(score);
 	}
 	
 	@Override
@@ -25,9 +26,10 @@ public class GGameFirst extends GGame implements CheckCard,CheckVictory,DrawCard
 	}
 	@Override
 	public boolean checkVictory(GGame player){
-		
+		if(this.getScore()<1)
+			return false;
 		if(this.getInput()>player.getInput() ){
-			this.setScore(this.getScore()+1);
+			this.setScore(this.getScore()-1);
 			reverse(player);
 			return true;
 		}
@@ -48,5 +50,10 @@ public class GGameFirst extends GGame implements CheckCard,CheckVictory,DrawCard
 			return true;
 		return false;
 	}
+	
+	boolean victoryGame(){
+		if(this.getScore()<1)
+			return true;
+		return false;
+	}
 }
-

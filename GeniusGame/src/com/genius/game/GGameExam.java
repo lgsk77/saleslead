@@ -11,8 +11,8 @@ public class GGameExam {
 			System.out.println("몇 점으로 하시겠습니까?");
 			int maxscore = scanner.nextInt();
 			System.out.println(maxscore);
-			GGameSecond p1 = new GGameSecond(maxscore);
-			GGameSecond p2 = new GGameSecond(maxscore);
+			GGameDown p1 = new GGameDown(maxscore);
+			GGameDown p2 = new GGameDown(maxscore);
 			System.out.println("카드를 몇 장 사용하시겠습니까?");
 			System.out.println("(최대 100장)");
 			int cardnum = scanner.nextInt();

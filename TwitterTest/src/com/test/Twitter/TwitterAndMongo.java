@@ -16,7 +16,7 @@ import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
 public class TwitterAndMongo {
-
+//ss
 	public static void main(String[] args) throws TwitterException, InterruptedException {
 		MongoClient mongoClient = null;//MongoClient »ý¼º
 		try {

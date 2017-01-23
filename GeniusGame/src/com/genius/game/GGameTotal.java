@@ -1,16 +1,81 @@
 package com.genius.game;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+//import com.test.collection_Exam.Person;
+
+
+class Person  implements Serializable{
+	private String name;
+	private int win;
+	private int lose;
+	void Person(){
+		name="";
+		win = 0;
+		lose=0;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public int getWin(){
+		return this.win;
+	}
+	
+	public int getLose(){
+		return this.lose;
+	}
+	
+	public void setName(String name){
+		this.name=name;
+	}
+	
+	public void setWin(int Win){
+		this.win=Win;
+	}
+	
+	public void setLose(int lose){
+		this.lose=lose;
+	}
+}
 
 public class GGameTotal {
 	public static void main(String argc[]) {
 
 		Scanner scanner = new Scanner(System.in);
+		String P1 = new String();
+		String P2 = new String();
+		ArrayList<Person> playerRecord= new ArrayList<Person>();
+		playerRecord = readRanking();
+		
+		for(int i=0;i<playerRecord.size();i++){
+			int a;
+			Person info = playerRecord.get(i);
+			System.out.println(info.getName()+","+info.getWin());
+		}
 		
 		do {
+			System.out.println("P1의 이름을 입력해 주세요.");
+			P1 = scanner.nextLine();
+			System.out.println(P1);
+			System.out.println("P1의 이름을 입력해 주세요.");
+			P2 = scanner.nextLine();
+			System.out.println(P2);
 			System.out.println("1.Up 2.Down 3.end");
 			int selectMenu  = scanner.nextInt();
-			GGame[] player={new GGameUp(),new GGameUp(),new GGameDown(5),new GGameDown(5)}; 
+			GGame[] player={new GGameUp(),new GGameUp(),new GGameDown(5),new GGameDown(5)};
+			
 			if(selectMenu==1){
 				System.out.println("카드를 몇 장 사용하시겠습니까?");
 				System.out.println("(최대 100장)");
@@ -52,8 +117,74 @@ public class GGameTotal {
 				}
 				if (((GGameUp) player[0]).victoryGame(player[1])) {
 					System.out.println("p1이 " + player[0].getScore() + " 대 " + player[1].getScore() + "로 이겼습니다.");
-				} else if (((GGameUp) player[1]).victoryGame(player[0]))
+					winGame(playerRecord,P1,P2);
+					//for(int i=0;i<playerRecord.size();i++)
+					/*boolean p1flag = true;
+					boolean p2flag = true;
+					for(int i=0;i<playerRecord.size();i++){
+						Person info = playerRecord.get(i);
+						if(info.getName().equals(P1)){
+							info.setName(info.getName());
+							info.setWin(info.getWin()+1);
+							info.setLose(info.getLose());
+							playerRecord.set(i, info);
+							p1flag=false;
+						}
+						else if(info.getName().equals(P2)){
+							info.setName(info.getName());
+							info.setWin(info.getWin());
+							info.setLose(info.getLose()+1);
+							playerRecord.set(i, info);
+							p2flag=false;
+						}
+					}
+					if(p1flag==true){
+						Person info= new Person();
+						info.setName(P1);
+						info.setWin(1);
+						playerRecord.add(info);
+					}
+					if(p2flag==true){
+						Person info= new Person();
+						info.setName(P2);
+						info.setLose(1);
+						playerRecord.add(info);
+					}*/
+				} else if (((GGameUp) player[1]).victoryGame(player[0])){
 					System.out.println("p2가 " + player[0].getScore() + " 대 " + player[1].getScore() + "로 이겼습니다.");
+					winGame(playerRecord,P2,P1);
+					/*boolean p1flag = true;
+					boolean p2flag = true;
+					for(int i=0;i<playerRecord.size();i++){
+						Person info = playerRecord.get(i);
+						if(info.getName().equals(P1)){
+							info.setName(info.getName());
+							info.setWin(info.getWin());
+							info.setLose(info.getLose()+1);
+							playerRecord.set(i, info);
+							p1flag=false;
+						}
+						else if(info.getName().equals(P2)){
+							info.setName(info.getName());
+							info.setWin(info.getWin()+1);
+							info.setLose(info.getLose());
+							playerRecord.set(i, info);
+							p2flag=false;
+						}
+					}
+					if(p1flag==true){
+						Person info= new Person();
+						info.setName(P1);
+						info.setLose(1);
+						playerRecord.add(info);
+					}
+					if(p2flag==true){
+						Person info= new Person();
+						info.setName(P2);
+						info.setWin(1);
+						playerRecord.add(info);
+					}*/
+				}
 				else
 					System.out.println("비겼네요 ㅠㅠ");
 			}
@@ -94,11 +225,13 @@ public class GGameTotal {
 							System.out.println("p1이 게임에서 이겼습니다.");
 							System.out.println("p1score :" + player[2].getScore());
 							System.out.println("p2score :" + player[3].getScore());
+							winGame(playerRecord,P1,P2);
 							break;
 						} else if (((GGameDown) player[3]).victoryGame()) {
 							System.out.println("p2가 게임에서 이겼습니다.");
 							System.out.println("p1score :" + player[2].getScore());
 							System.out.println("p2score :" + player[3].getScore());
+							winGame(playerRecord,P2,P1);
 							break;
 						}
 					} else if (((GGameDown) player[3]).checkVictory(((GGameDown) player[2]))) {
@@ -109,11 +242,13 @@ public class GGameTotal {
 							System.out.println("p1이 게임에서 이겼습니다");
 							System.out.println("p1score :" + player[2].getScore());
 							System.out.println("p2score :" + player[3].getScore());
+							winGame(playerRecord,P1,P2);
 							break;
 						} else if (((GGameDown) player[3]).victoryGame()) {
 							System.out.println("p2가 게임에서 이겼습니다.");
 							System.out.println("p1score :" + player[2].getScore());
 							System.out.println("p2score :" + player[3].getScore());
+							winGame(playerRecord,P2,P1);
 							break;
 						}
 					} 
@@ -123,6 +258,15 @@ public class GGameTotal {
 				System.out.println("");
 			System.out.println("그만 하시겠습니까?(y/n)");
 		} while (!scanner.next().equals("y"));
+		//playerRecord.clear();
+		
+		writeRanking(playerRecord);
+		
+		for(int i=0;i<playerRecord.size();i++){
+			int a;
+			Person info = playerRecord.get(i);
+			System.out.println(info.getName()+" 승 : "+info.getWin()+" 패 : "+info.getLose());
+		}
 		System.out.println("***************");
 		System.out.println("***다음에 또 만나요***");
 		System.out.println("***************");
@@ -131,5 +275,79 @@ public class GGameTotal {
 	static void clear() {
 		for (int i = 0; i < 15; i++)
 			System.out.println("");
+	}
+	
+	static ArrayList<Person> readRanking(){
+		ArrayList<Person> player= new ArrayList<Person>();
+		try{
+			FileInputStream fis = new FileInputStream("ranking.dat");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			player= (ArrayList<Person>)ois.readObject();		
+			ois.close();
+			fis.close();
+		}catch(Exception e){
+			FileOutputStream fos;
+			try {
+				fos = new FileOutputStream("ranking.dat");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(player);
+				oos.flush();
+				oos.close();
+				fos.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		return player;
+	}
+	
+	static void writeRanking(ArrayList<Person> player){
+		//ArrayList<Person> player= new ArrayList<Person>();
+		try{
+			FileOutputStream fos = new FileOutputStream("ranking.dat");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(player);
+			oos.flush();
+			oos.close();
+			fos.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		//return player;
+	}
+	
+	static void winGame(ArrayList<Person> player,String P1,String P2){
+		boolean p1flag = true;
+		boolean p2flag = true;
+		for(int i=0;i<player.size();i++){
+			Person info = player.get(i);
+			if(info.getName().equals(P1)){
+				info.setName(info.getName());
+				info.setWin(info.getWin()+1);
+				info.setLose(info.getLose());
+				player.set(i, info);
+				p1flag=false;
+			}
+			else if(info.getName().equals(P2)){
+				info.setName(info.getName());
+				info.setWin(info.getWin());
+				info.setLose(info.getLose()+1);
+				player.set(i, info);
+				p2flag=false;
+			}
+		}
+		if(p1flag==true){
+			Person info= new Person();
+			info.setName(P1);
+			info.setWin(1);
+			player.add(info);
+		}
+		if(p2flag==true){
+			Person info= new Person();
+			info.setName(P2);
+			info.setLose(1);
+			player.add(info);
+		}
 	}
 }

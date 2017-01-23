@@ -15,10 +15,10 @@ public class TwitterTest {
 	public static void main(String[] args) throws TwitterException,InterruptedException {
 		
 		ConfigurationBuilder cf = new ConfigurationBuilder();
-		cf.setDebugEnabled(true).setOAuthConsumerKey("2J8zHAjtZFDUx3RwAZ0iElt85")
-				.setOAuthConsumerSecret("1xTqo0P5F7JeEFrCumwGdnOjB4MEHgOTmxN24SrDXuPF0vlo0f")
-				.setOAuthAccessToken("218118624-gx61UVXIC11L55HjTbrmrSLIkcgbxBMe3xiXuDhy")
-				.setOAuthAccessTokenSecret("zm3Qwb8wS3GyH7PQ070nMScCkH6Za4qOsQMXs6xTZzTzb");
+		cf.setDebugEnabled(true).setOAuthConsumerKey("")
+				.setOAuthConsumerSecret("")
+				.setOAuthAccessToken("")
+				.setOAuthAccessTokenSecret("");
 
 		TwitterFactory tf = new TwitterFactory(cf.build());
 		Twitter twitter = tf.getInstance();

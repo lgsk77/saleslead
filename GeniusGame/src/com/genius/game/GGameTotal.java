@@ -56,7 +56,7 @@ public class GGameTotal {
 		Scanner scanner = new Scanner(System.in);
 		String P1 = new String();
 		String P2 = new String();
-		boolean end = true;
+		boolean endFlag = true;
 		ArrayList<PlayerInfo> playerRecord= new ArrayList<PlayerInfo>();
 		playerRecord = readRanking();
 		
@@ -209,12 +209,12 @@ public class GGameTotal {
 				System.out.println(info.getName()+" 승 : "+info.getWin()+" 패 : "+info.getLose());
 			}
 			System.out.println("그만 하시겠습니까?(y/n)");
-			String YS= new String();
-			YS=scanner.next();
-			if(YS.equals("y")){
-				end=false;
+			String end= new String();
+			end=scanner.next();
+			if(end.equals("y")){
+				endFlag=false;
 			}
-		} while (end);
+		} while (endFlag);
 		//playerRecord.clear();
 		
 		writeRanking(playerRecord);

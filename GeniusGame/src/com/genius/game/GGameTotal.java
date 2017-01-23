@@ -15,11 +15,11 @@ import java.util.Scanner;
 //import com.test.collection_Exam.Person;
 
 
-class Person  implements Serializable{
+class PlayerInfo  implements Serializable{
 	private String name;
 	private int win;
 	private int lose;
-	void Person(){
+	void PlayerInfo(){
 		name="";
 		win = 0;
 		lose=0;
@@ -56,22 +56,32 @@ public class GGameTotal {
 		Scanner scanner = new Scanner(System.in);
 		String P1 = new String();
 		String P2 = new String();
-		ArrayList<Person> playerRecord= new ArrayList<Person>();
+		boolean end = true;
+		ArrayList<PlayerInfo> playerRecord= new ArrayList<PlayerInfo>();
 		playerRecord = readRanking();
 		
 		for(int i=0;i<playerRecord.size();i++){
 			int a;
-			Person info = playerRecord.get(i);
+			PlayerInfo info = playerRecord.get(i);
 			System.out.println(info.getName()+","+info.getWin());
 		}
 		
 		do {
-			System.out.println("P1의 이름을 입력해 주세요.");
-			P1 = scanner.nextLine();
-			System.out.println(P1);
-			System.out.println("P1의 이름을 입력해 주세요.");
-			P2 = scanner.nextLine();
-			System.out.println(P2);
+			while(true){
+				System.out.println("P1의 이름을 입력해 주세요.");
+				P1 = scanner.next();
+				System.out.println(P1);
+				System.out.println("P2의 이름을 입력해 주세요.");
+				P2 = scanner.next();
+				System.out.println(P2);
+				
+				if(P1.equals(P2)){
+					System.out.println("같은 이름은 안됩니다. 다시 입력해주십시요.");
+				}
+				else
+					break;
+			}
+			
 			System.out.println("1.Up 2.Down 3.end");
 			int selectMenu  = scanner.nextInt();
 			GGame[] player={new GGameUp(),new GGameUp(),new GGameDown(5),new GGameDown(5)};
@@ -118,72 +128,9 @@ public class GGameTotal {
 				if (((GGameUp) player[0]).victoryGame(player[1])) {
 					System.out.println("p1이 " + player[0].getScore() + " 대 " + player[1].getScore() + "로 이겼습니다.");
 					winGame(playerRecord,P1,P2);
-					//for(int i=0;i<playerRecord.size();i++)
-					/*boolean p1flag = true;
-					boolean p2flag = true;
-					for(int i=0;i<playerRecord.size();i++){
-						Person info = playerRecord.get(i);
-						if(info.getName().equals(P1)){
-							info.setName(info.getName());
-							info.setWin(info.getWin()+1);
-							info.setLose(info.getLose());
-							playerRecord.set(i, info);
-							p1flag=false;
-						}
-						else if(info.getName().equals(P2)){
-							info.setName(info.getName());
-							info.setWin(info.getWin());
-							info.setLose(info.getLose()+1);
-							playerRecord.set(i, info);
-							p2flag=false;
-						}
-					}
-					if(p1flag==true){
-						Person info= new Person();
-						info.setName(P1);
-						info.setWin(1);
-						playerRecord.add(info);
-					}
-					if(p2flag==true){
-						Person info= new Person();
-						info.setName(P2);
-						info.setLose(1);
-						playerRecord.add(info);
-					}*/
 				} else if (((GGameUp) player[1]).victoryGame(player[0])){
 					System.out.println("p2가 " + player[0].getScore() + " 대 " + player[1].getScore() + "로 이겼습니다.");
 					winGame(playerRecord,P2,P1);
-					/*boolean p1flag = true;
-					boolean p2flag = true;
-					for(int i=0;i<playerRecord.size();i++){
-						Person info = playerRecord.get(i);
-						if(info.getName().equals(P1)){
-							info.setName(info.getName());
-							info.setWin(info.getWin());
-							info.setLose(info.getLose()+1);
-							playerRecord.set(i, info);
-							p1flag=false;
-						}
-						else if(info.getName().equals(P2)){
-							info.setName(info.getName());
-							info.setWin(info.getWin()+1);
-							info.setLose(info.getLose());
-							playerRecord.set(i, info);
-							p2flag=false;
-						}
-					}
-					if(p1flag==true){
-						Person info= new Person();
-						info.setName(P1);
-						info.setLose(1);
-						playerRecord.add(info);
-					}
-					if(p2flag==true){
-						Person info= new Person();
-						info.setName(P2);
-						info.setWin(1);
-						playerRecord.add(info);
-					}*/
 				}
 				else
 					System.out.println("비겼네요 ㅠㅠ");
@@ -257,14 +204,19 @@ public class GGameTotal {
 			else if(selectMenu==3)
 				System.out.println("");
 			System.out.println("그만 하시겠습니까?(y/n)");
-		} while (!scanner.next().equals("y"));
+			String YS= new String();
+			YS=scanner.next();
+			if(YS.equals("y")){
+				end=false;
+			}
+		} while (end);
 		//playerRecord.clear();
 		
 		writeRanking(playerRecord);
 		
 		for(int i=0;i<playerRecord.size();i++){
 			int a;
-			Person info = playerRecord.get(i);
+			PlayerInfo info = playerRecord.get(i);
 			System.out.println(info.getName()+" 승 : "+info.getWin()+" 패 : "+info.getLose());
 		}
 		System.out.println("***************");
@@ -277,12 +229,12 @@ public class GGameTotal {
 			System.out.println("");
 	}
 	
-	static ArrayList<Person> readRanking(){
-		ArrayList<Person> player= new ArrayList<Person>();
+	static ArrayList<PlayerInfo> readRanking(){
+		ArrayList<PlayerInfo> player= new ArrayList<PlayerInfo>();
 		try{
 			FileInputStream fis = new FileInputStream("ranking.dat");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			player= (ArrayList<Person>)ois.readObject();		
+			player= (ArrayList<PlayerInfo>)ois.readObject();		
 			ois.close();
 			fis.close();
 		}catch(Exception e){
@@ -302,7 +254,7 @@ public class GGameTotal {
 		return player;
 	}
 	
-	static void writeRanking(ArrayList<Person> player){
+	static void writeRanking(ArrayList<PlayerInfo> player){
 		//ArrayList<Person> player= new ArrayList<Person>();
 		try{
 			FileOutputStream fos = new FileOutputStream("ranking.dat");
@@ -317,11 +269,11 @@ public class GGameTotal {
 		//return player;
 	}
 	
-	static void winGame(ArrayList<Person> player,String P1,String P2){
+	static void winGame(ArrayList<PlayerInfo> player,String P1,String P2){
 		boolean p1flag = true;
 		boolean p2flag = true;
 		for(int i=0;i<player.size();i++){
-			Person info = player.get(i);
+			PlayerInfo info = player.get(i);
 			if(info.getName().equals(P1)){
 				info.setName(info.getName());
 				info.setWin(info.getWin()+1);
@@ -338,13 +290,13 @@ public class GGameTotal {
 			}
 		}
 		if(p1flag==true){
-			Person info= new Person();
+			PlayerInfo info= new PlayerInfo();
 			info.setName(P1);
 			info.setWin(1);
 			player.add(info);
 		}
 		if(p2flag==true){
-			Person info= new Person();
+			PlayerInfo info= new PlayerInfo();
 			info.setName(P2);
 			info.setLose(1);
 			player.add(info);

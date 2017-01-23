@@ -63,7 +63,7 @@ public class GGameTotal {
 		for(int i=0;i<playerRecord.size();i++){
 			int a;
 			PlayerInfo info = playerRecord.get(i);
-			System.out.println(info.getName()+","+info.getWin());
+			System.out.println(info.getName()+" 승 : "+info.getWin()+" 패 : "+info.getLose());
 		}
 		
 		do {
@@ -203,6 +203,11 @@ public class GGameTotal {
 			}
 			else if(selectMenu==3)
 				System.out.println("");
+			for(int i=0;i<playerRecord.size();i++){
+				int a;
+				PlayerInfo info = playerRecord.get(i);
+				System.out.println(info.getName()+" 승 : "+info.getWin()+" 패 : "+info.getLose());
+			}
 			System.out.println("그만 하시겠습니까?(y/n)");
 			String YS= new String();
 			YS=scanner.next();

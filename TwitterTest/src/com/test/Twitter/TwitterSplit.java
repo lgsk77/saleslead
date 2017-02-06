@@ -17,7 +17,7 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
-public class TwitterAndMongo {
+public class TwitterSplit {
 //ss
 	public static void main(String[] args) throws TwitterException, InterruptedException {
 		MongoClient mongoClient = null;//MongoClient 생성
@@ -32,7 +32,7 @@ public class TwitterAndMongo {
 			// 데이터베이스 연결
 			DB db = mongoClient.getDB("mymongo");
 			// 컬렉션 가져오기
-			DBCollection coll = db.getCollection("notebook1");
+			DBCollection coll = db.getCollection("notebook");
 				
 			ConfigurationBuilder cf = new ConfigurationBuilder();
 			cf.setDebugEnabled(true).setOAuthConsumerKey("2J8zHAjtZFDUx3RwAZ0iElt85")
@@ -60,25 +60,25 @@ public class TwitterAndMongo {
 				for (Status tweet : result.getTweets()) {
 					
 					// 트윗들을 화면에 표시합니다.
-					System.out.println(i + "." + tweet.getUser().getScreenName() + ":" + tweet.getText());
+					//System.out.println(i + "." + tweet.getUser().getScreenName() + ":" + tweet.getText());
 					
-					//retweet 빼내오기
-					String tweetText=tweet.getText();
-					int RtStart = tweetText.indexOf("@");
-					//System.out.println(RtStart);
-					int RtEnd = tweetText.indexOf(":");
-					//System.out.println(RtEnd);
-					String retweet = null;
-					if(RtStart > 0 && RtEnd > 0 && tweetText.indexOf("[출처]")<0){
-						//System.out.println(RtStart+" : " + RtEnd);
-						retweet = tweetText.substring(RtStart+1,RtEnd);
+					//리트윗 아이디 저장
+					String tweetText = tweet.getText();
+					StringTokenizer str = new StringTokenizer(tweetText," ");
+					String token=null;
+					String reTweet=null;
+					for(int x=1; str.hasMoreElements();x++){
+						token = str.nextToken();
+						//System.out.println(token);
+						if(token.indexOf("@") >= 0){
+							System.out.println(token.substring(1,token.length()-1));
+							reTweet = token.substring(1,token.length()-1);
+						}
 					}
-					
-					System.out.println(retweet);
 					
 					DBObject doc = new BasicDBObject();
 					doc.put("id", tweet.getUser().getScreenName());
-					doc.put("reTweet", retweet);
+					doc.put("reTweet", reTweet);
 					doc.put("tweet", tweet.getText());
 					coll.insert(doc);
 					i++;

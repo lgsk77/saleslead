@@ -19,7 +19,7 @@ public class TwitterTest {
 				.setOAuthConsumerSecret("")
 				.setOAuthAccessToken("")
 				.setOAuthAccessTokenSecret("");
-
+		
 		TwitterFactory tf = new TwitterFactory(cf.build());
 		Twitter twitter = tf.getInstance();
 		

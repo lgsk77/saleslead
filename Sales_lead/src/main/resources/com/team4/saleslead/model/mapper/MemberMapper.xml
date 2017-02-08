@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 논리적 클래스 만들기 -->
+<mapper namespace="com.team4.saleslead.model.mapper.MemberMapper">
+
+	<insert id="insertMember" parameterType="Member" useGeneratedKeys="true" keyProperty="memberNo"
+	keyColumn="memberno">
+		INSERT INTO Member 
+		(memberId, passWd, name, phone, email, grade)
+		VALUES 
+		(#{memberId}, #{passWd}, #{name}, #{phone}, #{email}, #{grade})
+	</insert>
+	
+	<select id="selectMemberByIdAndPasswd" parameterType="hashMap" resultType="Member">
+		SELECT *
+		From Member
+		WHERE memberId = #{memberId}
+		AND passWd = #{passWd}
+	</select>
+	
+	<update id="updateMember" parameterType="Member">
+	UPDATE Member
+	SET passWd = #{passWd}, phone = #{phone}
+	WHERE memberId = #{memberId}
+	</update>
+	
+	<update id="deleteMember" parameterType="string">
+	UPDATE Member
+	WHERE memberId = #{memberId}
+	</update>
+	
+	<select id="selectMemberByMemberId" parameterType="string" resultType="Member">
+	SELECT *
+	FROM Member
+	WHERE memberId= #{memberId}
+	</select>
+	
+	
+	
+</mapper>

@@ -71,9 +71,9 @@
 </section>
 		<div class="container">
 		<div style="height: 600px; padding-top: 70px; padding-bottom: 30px; margin: auto;">
-		
-			<div style="width: 250px; float :left">		
-			<img src="/saleslead/resources/images/돈.jpg" >		
+			<div style="width: 150px; float: left">&nbsp;</div>
+			<div style="width: 200px; float :left">		
+			<img src="/saleslead/resources/images/11.PNG" >		
 				<h1 style="text-align: center;">맞춤화</h1>
 				<p style="text-align: center;">각 고객의 sns에서 </p>
 				<p style="text-align: center;">이상항목을 발견한 후</p>
@@ -81,21 +81,21 @@
 				<p style="text-align: center;">상품을 미리 제안합니다. </p>
 			</div>
 			<div style="width: 170px; float: left">&nbsp;</div>
-			<div style="width: 250px; float :left">
-			<img src="/saleslead/resources/images/폰차.jpg" >		
+			<div style="width: 200px; float :left">
+			<img src="/saleslead/resources/images/22.PNG" >		
 				<h1 style="text-align: center;">수익성</h1>
-				<p style="text-align: center;">실시간으로 마케팅 자원을 최적화하고, </p>
-				<p style="text-align: center;">표적화된 상향판매 및 교차판매</p>
-				<p style="text-align: center;">상품을 제안할 수 있는 고급 연관 기법 </p>
+				<p style="text-align: center;">실시간으로 마케팅 자원을 최적화 </p>
+				<p style="text-align: center;">하고, 표적화된 상향판매 상품을 </p>
+				<p style="text-align: center;"> 제안할 수 있는 고급연관기법 </p>
 				<p style="text-align: center;">고객의 고객생애가치를 높입니다.</p>
 			</div>
 			<div style="width: 170px; float: left">&nbsp;</div>
-			<div style="width: 250px; float :left">
-			<img src="/saleslead/resources/images/신뢰.jpg">		
+			<div style="width: 200px; float :left">
+			<img src="/saleslead/resources/images/33.PNG">		
 				<h1 style="text-align: center;">고객확보</h1>
 				<p style="text-align: center;">수익성 있는 고객을 바탕으로 한 </p>
 				<p style="text-align: center;">세밀한 고객 분류를 통해  </p>
-				<p style="text-align: center;">마케팅 효과를 .</p>
+				<p style="text-align: center;">마케팅 효과를 극대화합니다.</p>
 			</div>
 		</div>
 		</div>

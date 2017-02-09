@@ -7,14 +7,14 @@
 
 	<properties>
 		<property name="driver" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/saleslead" />
+		<property name="url" value="jdbc:mysql://172.17.172.152:3306/saleslead" />
 		<property name="username" value="root" />
 		<property name="password" value="1234" />
 	</properties>
 
 	<typeAliases>
 		<typeAlias type="com.team4.saleslead.model.dto.Member" alias="Member" />
-		
+		<typeAlias type="com.team4.saleslead.model.dto.Target" alias="Target" />
 		
 
 	</typeAliases>
@@ -40,7 +40,7 @@
 		<!-- Code에서 분리된 SQL문이 작성되고 객체와의 매핑 정보가 정의되는 파일들 경로는 패키지 경로를 사용 : com.demoweb 
 			-> com/demoweb 경로 -->
 		<mapper resource="com/team4/saleslead/model/mapper/MemberMapper.xml" />
-		
+		<mapper resource="com/team4/saleslead/model/mapper/TargetMapper.xml" />
 
 	</mappers>
 

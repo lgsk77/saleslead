@@ -56,7 +56,7 @@
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="#">타겟팅</a>
 									<ul class="dropdown-menu">
-										<li><a href="portfolio_2.html">Portfolio 2</a></li>
+										<li><a href="/saleslead/targeting/view.action">결과조회</a></li>
 									</ul></li>
 
 								<li><a href="/saleslead/board/list.action">게시판</a>

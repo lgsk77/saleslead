@@ -64,7 +64,7 @@
 										<li><a href="/saleslead/board/list.action">공지사항</a></li>
 										<li><a href="/saleslead/board/list2.action">후기</a></li>
 									</ul></li>
-									<li><a href="#">마이페이지</a>
+									<li><a href="#">마이페이지</a>	
 									<ul class="dropdown-menu">
 										<li><a href="/saleslead/member/edit.action">회원정보수정</a></li>
 										

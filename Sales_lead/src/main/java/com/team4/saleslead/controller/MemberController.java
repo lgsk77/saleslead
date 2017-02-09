@@ -30,8 +30,8 @@ public class MemberController {
 
 	@RequestMapping(value = "register.action", method = RequestMethod.POST)
 	public String register(@Valid @ModelAttribute Member member) {
-		System.out.println(member.getMemberId());
-		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-256"));
+		
+		//member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-256"));
 
 		memberService.insertMember(member);
 
@@ -50,7 +50,7 @@ public class MemberController {
 	@RequestMapping(value = "edit.action", method = RequestMethod.POST)
 	public String edit(Member member, HttpSession session) {
 		Member member1 = (Member)session.getAttribute("loginuser");
-		member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-256"));
+		//member.setPassWd(Util.getHashedString(member.getPassWd(), "SHA-256"));
 		member.setMemberId(member1.getMemberId());
 		memberService.updateMember(member);
 

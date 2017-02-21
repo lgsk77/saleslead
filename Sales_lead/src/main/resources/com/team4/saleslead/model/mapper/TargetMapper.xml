@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 논리적 클래스 만들기 -->
+<mapper namespace="com.team4.saleslead.model.mapper.TargetMapper">
+	<resultMap type="Target" id="targetMap">
+		<id property="no" column="no" />
+		<result property="id" column="id" />
+
+		<collection property="no" column="no"
+			select="selectAllId" />
+	</resultMap>
+
+	<select id="selectAllId" resultType="Target">
+		SELECT *
+		FROM Target
+	</select>
+	
+	
+	
+</mapper>
